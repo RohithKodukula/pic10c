@@ -3,19 +3,15 @@ Guavas (4)
 Orange (3)
 Bananas (4)
 Apple (20)
-Tomatoes (15) (became spoiled)
 
 Meals:
 Pita Wrap (10)
-Pizza slices (2) (had to throw out)
 Pancakes (20)
 
 Snacks:
-Crackers and cheese (10) (cheese spoiled)
 Bruschetta (20)
 
 Dessert:
 Ice cream (3)
-Tiramisu Servings (0) 
 Birthday Cake (1/4)
 
