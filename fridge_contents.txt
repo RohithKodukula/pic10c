@@ -1,12 +1,8 @@
 Fruits:
-Orange (3)
-Bananas (4)
+Guavas (4)
 
 Meals:
-Pizza slices (2)
-Enchiladas (0)
-Tacos (0)
+Pita Wrap (10)
 
 Dessert:
-Ice cream (3)
-Julian Pie pieces (0)
+Tiramisu Servings (5)
