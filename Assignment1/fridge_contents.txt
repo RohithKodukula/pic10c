@@ -1,17 +1,17 @@
 Fruits:
-Guavas (4)
-Orange (3)
 Bananas (4)
 Apple (20)
 
 Meals:
 Pita Wrap (10)
-Pancakes (20)
+Chicken dinner (2)
 
 Snacks:
-Bruschetta (20)
+Bruschetta (5)
+Baba ghanoush (5)
+Nachoes (30)
+Kettle Chips (5)
 
 Dessert:
 Ice cream (3)
-Birthday Cake (1/4)
-
+Banana Bread (5)
