@@ -3,4 +3,7 @@ In this text file I will catalogue all the commands that I learn in Vim. I want 
 The first thing I learned from him is how to open a file using... 
 vim file_name
 
+The next thing that I learned is how to quit out of a created file to go back to the command line instantly. This is a big plus of vim because it's accessed in the command line and therefore doesn't require multiple windows.
+This is done by being out of insert mode and typing the following:
+:wq
 
