@@ -1,17 +1,26 @@
 Fruits:
 Bananas (4)
 Apple (20)
+Guava (20)
+Orange (10)
+Blueberries (20)
 
 Meals:
 Pita Wrap (10)
 Chicken dinner (2)
+Naan (50)
+Chicken Tikka Masala Curry (50)
 
 Snacks:
 Bruschetta (5)
 Baba ghanoush (5)
 Nachoes (30)
 Kettle Chips (5)
+Ruffles and Cheetos (10)
+Fanta and coke (10)
 
 Dessert:
 Ice cream (3)
 Banana Bread (5)
+Rasmalai (20)
+Gilabi (20)
