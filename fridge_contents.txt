@@ -2,11 +2,20 @@ Fruits:
 Guavas (4)
 Orange (3)
 Bananas (4)
+Apple (20)
+Tomatoes (15)
 
 Meals:
 Pita Wrap (10)
 Pizza slices (2)
+Pancakes (20)
+
+Snacks:
+Crackers and cheese (10)
+Bruschetta (20)
 
 Dessert:
 Ice cream (3)
 Tiramisu Servings (5)
+Birthday Cake (1)
+
