@@ -1,0 +1,5 @@
+In this file I'm going to learn how to use vim because it's a very useful text editor once you know how to use it.
+
+I saw the Profressor use Vim and i would like to learn so here it goes.
+
+The first thing I learned was how to go insert mode because that's the more important mode in order to add to code.
