@@ -1,13 +1,12 @@
 Fruits:
 Orange (3)
-Strawberries (2 - 2 = 0)
 Bananas (4)
 
 Meals:
 Pizza slices (2)
-Enchilads (4 - 3 = 1)
+Enchilads (1)
 Tacos (3)
 
 Dessert:
 Ice cream (15)
-Julian Pie pieces (6 - 1 = 5)
+Julian Pie pieces (5)
