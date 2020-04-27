@@ -1,8 +1,12 @@
 Fruits:
 Guavas (4)
+Orange (3)
+Bananas (4)
 
 Meals:
 Pita Wrap (10)
+Pizza slices (2)
 
 Dessert:
+Ice cream (3)
 Tiramisu Servings (5)
