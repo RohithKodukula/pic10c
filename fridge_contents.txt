@@ -4,9 +4,9 @@ Bananas (4)
 
 Meals:
 Pizza slices (2)
-Enchilads (1)
-Tacos (3)
+Enchiladas (0)
+Tacos (0)
 
 Dessert:
-Ice cream (15)
-Julian Pie pieces (5)
+Ice cream (3)
+Julian Pie pieces (0)
