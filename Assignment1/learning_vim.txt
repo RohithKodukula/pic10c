@@ -1,0 +1,6 @@
+In this text file I will catalogue all the commands that I learn in Vim. I want to learn Vim because I heard it was very powerful and that Professor Salazar uses it.
+
+The first thing I learned from him is how to open a file using... 
+vim file_name
+
+
