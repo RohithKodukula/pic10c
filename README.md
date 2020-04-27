@@ -1,6 +1,5 @@
-# pic10c
-This is the repo that is to be graded for my PIC 10C assignments at the end of the quarter. Thank you for evaluating my work.
+# PIC 10C: Advanced Programming
+This is a repository of work for Rohith Kodukula. His UID number at UCLA is 305109022 for reference. This ReadMe file contains descriptions of each folder and what is inside it.
 
-# fridge_contents.txt
-This file is written to keep track of a the contents of my refrigerator as people come and eat and get food. The quantity of each food is given in paranthesis next to the type of food. Each commit is either food being consumed for sustenance or food being added after someone perhaps gets groceries or as people bring food.
-
+## Assignment1
+This assignment was assigned to get a working grip on how to use git commands to update a remote repository. The fridge_contents file was developed to keep a working history of what food is being kept inside the fridge. Food is consumed and removed from fridge while food is also brought to the fridge for groceries, potlucks, and what not.
