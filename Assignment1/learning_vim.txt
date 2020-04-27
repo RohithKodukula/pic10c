@@ -10,4 +10,4 @@ This is done by being out of insert mode and typing the following:
 :wq
 
 # Insert Mode and Different Ways of Inserting
-The next obvious thing that I needed to get comfortable with is going in and out of vim's insert mode. Pressing lowercase 'i' is god for entering insert mode and typing in thing like a regular text editor. There is also a variation of bein
+The next obvious thing that I needed to get comfortable with is going in and out of vim's insert mode. Pressing lowercase `'i'` is god for entering insert mode and typing in thing like a regular text editor. There is also a variation of getting insert mode be hitting lowercase `'o'` to open a line under the current.
