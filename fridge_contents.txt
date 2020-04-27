@@ -1,0 +1,13 @@
+Fruits:
+Orange (3)
+Strawberries (2)
+Bananas (4)
+
+Meals:
+Pizza slices (2)
+Enchilads (4)
+Tacos (3)
+
+Dessert:
+Ice cream (15)
+Julian Pie pieces (6)
