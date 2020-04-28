@@ -20,9 +20,20 @@ The next thing I learned was the use of ` h, j, k, and l ` keys to move the curs
 # Aesthetics: Line Numbers and Syntax Coloring
 These types of commands that add line numbers and color your syntax according to the language of the document are custimizations that I saw other Vim tutorials often had. A quick research let me figure how to edit my own **.vimrc** file to make Vim open with the customizations each time.
 
+`<<<<<<< HEAD `
 # Conflict Resolution
 In this section I attempt to create a purposeful conflict resolution by editing this paragraph and the list at the same time. I will have to manage the conflicts in my text editor myself.
 
 1. Apples (10)
 2. Bananas (15)
 3. Oranges (7)
+` ======= `
+# Conlifct Resolution
+In this section I attempt to make a conflict in the merge so that I can resolve it. First I will write an ordered list in markdown.
+
+1. Apples (5)
+2. Oranges (20)
+3. Bananas (10)
+
+After this list is created I'm going to modify some of the quantities such that there will have to be a manual conflict resolyution.
+` >>>>>>> more_vim `
