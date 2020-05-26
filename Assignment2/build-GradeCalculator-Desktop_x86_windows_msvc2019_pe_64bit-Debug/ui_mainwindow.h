@@ -134,12 +134,14 @@ public:
 
         hw1slide = new QSlider(verticalLayoutWidget_3);
         hw1slide->setObjectName(QStringLiteral("hw1slide"));
+        hw1slide->setMaximum(100);
         hw1slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout->addWidget(hw1slide);
 
         hw1spin = new QSpinBox(verticalLayoutWidget_3);
         hw1spin->setObjectName(QStringLiteral("hw1spin"));
+        hw1spin->setMaximum(100);
 
         horizontalLayout->addWidget(hw1spin);
 
@@ -155,12 +157,14 @@ public:
 
         hw2slide = new QSlider(verticalLayoutWidget_3);
         hw2slide->setObjectName(QStringLiteral("hw2slide"));
+        hw2slide->setMaximum(100);
         hw2slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_2->addWidget(hw2slide);
 
         hw2spin = new QSpinBox(verticalLayoutWidget_3);
         hw2spin->setObjectName(QStringLiteral("hw2spin"));
+        hw2spin->setMaximum(100);
 
         horizontalLayout_2->addWidget(hw2spin);
 
@@ -176,12 +180,14 @@ public:
 
         hw3slide = new QSlider(verticalLayoutWidget_3);
         hw3slide->setObjectName(QStringLiteral("hw3slide"));
+        hw3slide->setMaximum(100);
         hw3slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_3->addWidget(hw3slide);
 
         hw3spin = new QSpinBox(verticalLayoutWidget_3);
         hw3spin->setObjectName(QStringLiteral("hw3spin"));
+        hw3spin->setMaximum(100);
 
         horizontalLayout_3->addWidget(hw3spin);
 
@@ -197,12 +203,14 @@ public:
 
         hw4slide = new QSlider(verticalLayoutWidget_3);
         hw4slide->setObjectName(QStringLiteral("hw4slide"));
+        hw4slide->setMaximum(100);
         hw4slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_4->addWidget(hw4slide);
 
         hw4spin = new QSpinBox(verticalLayoutWidget_3);
         hw4spin->setObjectName(QStringLiteral("hw4spin"));
+        hw4spin->setMaximum(100);
 
         horizontalLayout_4->addWidget(hw4spin);
 
@@ -218,12 +226,14 @@ public:
 
         hw5slide = new QSlider(verticalLayoutWidget_3);
         hw5slide->setObjectName(QStringLiteral("hw5slide"));
+        hw5slide->setMaximum(100);
         hw5slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_5->addWidget(hw5slide);
 
         hw5spin = new QSpinBox(verticalLayoutWidget_3);
         hw5spin->setObjectName(QStringLiteral("hw5spin"));
+        hw5spin->setMaximum(100);
 
         horizontalLayout_5->addWidget(hw5spin);
 
@@ -239,12 +249,14 @@ public:
 
         hw6slide = new QSlider(verticalLayoutWidget_3);
         hw6slide->setObjectName(QStringLiteral("hw6slide"));
+        hw6slide->setMaximum(100);
         hw6slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_6->addWidget(hw6slide);
 
         hw6spin = new QSpinBox(verticalLayoutWidget_3);
         hw6spin->setObjectName(QStringLiteral("hw6spin"));
+        hw6spin->setMaximum(100);
 
         horizontalLayout_6->addWidget(hw6spin);
 
@@ -260,12 +272,14 @@ public:
 
         hw7slide = new QSlider(verticalLayoutWidget_3);
         hw7slide->setObjectName(QStringLiteral("hw7slide"));
+        hw7slide->setMaximum(100);
         hw7slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_7->addWidget(hw7slide);
 
         hw7spin = new QSpinBox(verticalLayoutWidget_3);
         hw7spin->setObjectName(QStringLiteral("hw7spin"));
+        hw7spin->setMaximum(100);
 
         horizontalLayout_7->addWidget(hw7spin);
 
@@ -281,12 +295,14 @@ public:
 
         hw8slide = new QSlider(verticalLayoutWidget_3);
         hw8slide->setObjectName(QStringLiteral("hw8slide"));
+        hw8slide->setMaximum(100);
         hw8slide->setOrientation(Qt::Horizontal);
 
         horizontalLayout_8->addWidget(hw8slide);
 
         hw8spin = new QSpinBox(verticalLayoutWidget_3);
         hw8spin->setObjectName(QStringLiteral("hw8spin"));
+        hw8spin->setMaximum(100);
 
         horizontalLayout_8->addWidget(hw8spin);
 
@@ -309,12 +325,14 @@ public:
 
         mid1slide = new QSlider(verticalLayoutWidget_3);
         mid1slide->setObjectName(QStringLiteral("mid1slide"));
+        mid1slide->setMaximum(100);
         mid1slide->setOrientation(Qt::Horizontal);
 
         verticalLayout_2->addWidget(mid1slide);
 
         mid1spin = new QSpinBox(verticalLayoutWidget_3);
         mid1spin->setObjectName(QStringLiteral("mid1spin"));
+        mid1spin->setMaximum(100);
 
         verticalLayout_2->addWidget(mid1spin);
 
@@ -329,12 +347,14 @@ public:
 
         mid2slide = new QSlider(verticalLayoutWidget_3);
         mid2slide->setObjectName(QStringLiteral("mid2slide"));
+        mid2slide->setMaximum(100);
         mid2slide->setOrientation(Qt::Horizontal);
 
         verticalLayout_2->addWidget(mid2slide);
 
         mid2spin = new QSpinBox(verticalLayoutWidget_3);
         mid2spin->setObjectName(QStringLiteral("mid2spin"));
+        mid2spin->setMaximum(100);
 
         verticalLayout_2->addWidget(mid2spin);
 
@@ -349,12 +369,14 @@ public:
 
         finalslide = new QSlider(verticalLayoutWidget_3);
         finalslide->setObjectName(QStringLiteral("finalslide"));
+        finalslide->setMaximum(100);
         finalslide->setOrientation(Qt::Horizontal);
 
         verticalLayout_2->addWidget(finalslide);
 
         finalspin = new QSpinBox(verticalLayoutWidget_3);
         finalspin->setObjectName(QStringLiteral("finalspin"));
+        finalspin->setMaximum(100);
 
         verticalLayout_2->addWidget(finalspin);
 

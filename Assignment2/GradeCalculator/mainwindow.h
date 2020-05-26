@@ -18,7 +18,10 @@ public:
 private slots:
     void on_spinBox_valueChanged(int arg1);
 
+    void on_mid2spin_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
+    void update_label() const;
 };
 #endif // MAINWINDOW_H

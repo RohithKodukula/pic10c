@@ -229,6 +229,7 @@ Makefile: ..\GradeCalculator\GradeCalculator.pro C:\Users\koduk\Miniconda3\Libra
 		C:\Users\koduk\Miniconda3\Library\mkspecs\features\qt_config.prf \
 		C:\Users\koduk\Miniconda3\Library\mkspecs\win32-msvc\qmake.conf \
 		C:\Users\koduk\Miniconda3\Library\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		C:\Users\koduk\Miniconda3\Library\mkspecs\features\exclusive_builds.prf \
 		C:\Users\koduk\Miniconda3\Library\mkspecs\common\msvc-version.conf \
 		C:\Users\koduk\Miniconda3\Library\mkspecs\features\toolchain.prf \
@@ -411,6 +412,7 @@ C:\Users\koduk\Miniconda3\Library\mkspecs\features\qt_functions.prf:
 C:\Users\koduk\Miniconda3\Library\mkspecs\features\qt_config.prf:
 C:\Users\koduk\Miniconda3\Library\mkspecs\win32-msvc\qmake.conf:
 C:\Users\koduk\Miniconda3\Library\mkspecs\features\spec_post.prf:
+.qmake.stash:
 C:\Users\koduk\Miniconda3\Library\mkspecs\features\exclusive_builds.prf:
 C:\Users\koduk\Miniconda3\Library\mkspecs\common\msvc-version.conf:
 C:\Users\koduk\Miniconda3\Library\mkspecs\features\toolchain.prf:
