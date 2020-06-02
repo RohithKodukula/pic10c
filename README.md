@@ -21,7 +21,7 @@ After conversing with the TA after discussion one day I was able to change the e
 ### Back to Work
 The layout I had implemented worked just fine. I connected all the signals from the spin boxes and sliders to the update_label() function that I had written to update the grade.
 
-I ran into a problem where the radio buttons didn't properly update the grade on press.
+I ran into a problem where the radio buttons didn't properly update the grade on press. Quickly resolved using the `clicked()` signal.
 
 ## Final Project: Minesweeper
 The main hinderance in starting the final project was my inability to compile in my Qt environment. Emailing back and forth with the TA I had to install Qt several times from scratch. This process is detailed above in the "Installation Problems" section.

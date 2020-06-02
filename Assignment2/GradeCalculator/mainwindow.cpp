@@ -26,9 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->finalspin, SIGNAL( valueChanged(int) ),this, SLOT(update_label()));
 
     QObject::connect(ui->radioButton, SIGNAL( clicked() ),this, SLOT(update_label()));
-    std::cout << "connected toggle 1..." << std::endl;
     QObject::connect(ui->radioButton_2, SIGNAL( clicked() ),this, SLOT(update_label()));
-    std::cout << "connected toggle 2...";
 
 }
 
