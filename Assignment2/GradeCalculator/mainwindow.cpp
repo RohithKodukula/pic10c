@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+#include <QThread>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->mid2spin, SIGNAL( valueChanged(int) ),this, SLOT(update_label()));
     QObject::connect(ui->finalspin, SIGNAL( valueChanged(int) ),this, SLOT(update_label()));
 
-    QObject::connect(ui->radioButton, SIGNAL( toggle() ),this, SLOT(update_label()));
-    QObject::connect(ui->radioButton_2, SIGNAL( toggle() ),this, SLOT(update_label()));
+    QObject::connect(ui->radioButton, SIGNAL( toggled() ),this, SLOT(update_label()));
+    QObject::connect(ui->radioButton_2, SIGNAL( toggled() ),this, SLOT(update_label()));
 
 }
 
@@ -56,7 +57,9 @@ void MainWindow::update_label() const
         QString text("Overal Score: " + QString::number(grade,'f',2));
         ui->label_12->setText(text);
     }
-    else {}
+    else {
+        update_label();
+    }
 }
 
 
