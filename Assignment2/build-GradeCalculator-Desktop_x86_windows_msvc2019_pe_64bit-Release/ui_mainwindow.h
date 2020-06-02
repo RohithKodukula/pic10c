@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.7
+** Created by: Qt User Interface Compiler version 5.9.9
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
@@ -90,18 +91,19 @@ public:
     QRadioButton *radioButton_2;
     QLabel *label_12;
     QMenuBar *menubar;
+    QMenu *menuGrade_Calculator;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(505, 560);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         verticalLayoutWidget_3 = new QWidget(centralwidget);
         verticalLayoutWidget_3->setObjectName(QStringLiteral("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(90, 30, 481, 501));
+        verticalLayoutWidget_3->setGeometry(QRect(10, 10, 481, 501));
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -408,11 +410,15 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 505, 21));
+        menuGrade_Calculator = new QMenu(menubar);
+        menuGrade_Calculator->setObjectName(QStringLiteral("menuGrade_Calculator"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuGrade_Calculator->menuAction());
 
         retranslateUi(MainWindow);
         QObject::connect(hw1spin, SIGNAL(valueChanged(int)), hw1slide, SLOT(setValue(int)));
@@ -435,6 +441,8 @@ public:
         QObject::connect(mid1slide, SIGNAL(sliderMoved(int)), mid1spin, SLOT(setValue(int)));
         QObject::connect(mid2spin, SIGNAL(valueChanged(int)), mid2slide, SLOT(setValue(int)));
         QObject::connect(mid2slide, SIGNAL(sliderMoved(int)), mid2spin, SLOT(setValue(int)));
+        QObject::connect(finalspin, SIGNAL(valueChanged(int)), finalslide, SLOT(setValue(int)));
+        QObject::connect(finalslide, SIGNAL(sliderMoved(int)), finalspin, SLOT(setValue(int)));
         QObject::connect(finalspin, SIGNAL(valueChanged(int)), finalslide, SLOT(setValue(int)));
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -463,6 +471,7 @@ public:
         radioButton->setText(QApplication::translate("MainWindow", "Schema A", Q_NULLPTR));
         radioButton_2->setText(QApplication::translate("MainWindow", "Schema B", Q_NULLPTR));
         label_12->setText(QApplication::translate("MainWindow", "Overall Score:", Q_NULLPTR));
+        menuGrade_Calculator->setTitle(QApplication::translate("MainWindow", "Grade Calculator", Q_NULLPTR));
     } // retranslateUi
 
 };

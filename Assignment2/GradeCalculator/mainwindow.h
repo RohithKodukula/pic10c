@@ -16,10 +16,9 @@ public:
     ~MainWindow();
 
 private slots:
-
+    void update_label() const;
 
 private:
     Ui::MainWindow *ui;
-    void update_label() const;
 };
 #endif // MAINWINDOW_H
