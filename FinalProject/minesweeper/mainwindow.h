@@ -25,8 +25,7 @@ public:
     MainWindow(int w, int h, int num);
     ~MainWindow();
 
-    void bomb_gen();
-    void printboard();
+    void bomb_gen(int x_clear, int y_clear);
     void placeMine(int x, int y);
 
 private:

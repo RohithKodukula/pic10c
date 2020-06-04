@@ -18,7 +18,7 @@ MainWindow::MainWindow(int w, int h, int num):
         }
     }
     std::cout << "constructed window..." << std::endl;
-    bomb_gen();
+
     layout = new QGridLayout();
     QWidget* centralWidget = new QWidget();
     for(int i = 0; i < width; ++i)
@@ -29,7 +29,7 @@ MainWindow::MainWindow(int w, int h, int num):
             QStackedWidget *stack = new QStackedWidget();
 
             //button that covers numbers/bombs
-            QPushButton* button = new QPushButton("B");
+            QPushButton* button = new QPushButton(" ");
             button->setStyleSheet("height: 175px; width: 50px; font-size: 50px;");
 
             //text underneath with number/bomb
@@ -42,7 +42,7 @@ MainWindow::MainWindow(int w, int h, int num):
 
             stack->addWidget(button);
             stack->addWidget(under);
-            stack->setCurrentIndex(1);
+            stack->setCurrentIndex(0);
 
             layout->addWidget(stack, i, j);
         }
@@ -172,8 +172,8 @@ void MainWindow::placeMine(int x, int y)
     }
 }
 
-//adds
-void MainWindow::bomb_gen()
+//adds bombs where they are allowed to be
+void MainWindow::bomb_gen(int x_clear, int y_clear)
 {
     int x;
     int y;
@@ -182,24 +182,12 @@ void MainWindow::bomb_gen()
     {
         x = rand() % height;
         y = rand() % width;
-        if(mines[x][y] != -1)
+        if(mines[x][y] != -1 || mines[x_clear][y_clear])
         {
             mines[x][y] = -1;
             placeMine(x,y);
             counter++;
         }
-    }
-}
-
-void MainWindow::printboard()
-{
-    for(int i = 0; i < height; ++i)
-    {
-        for(int j = 0; j < width; ++j)
-        {
-            std::cout << mines[i][j] << " ";
-        }
-        std::cout << std::endl;
     }
 }
 
