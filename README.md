@@ -26,3 +26,4 @@ I ran into a problem where the radio buttons didn't properly update the grade on
 ## Final Project: Minesweeper
 The main hinderance in starting the final project was my inability to compile in my Qt environment. Emailing back and forth with the TA I had to install Qt several times from scratch. This process is detailed above in the "Installation Problems" section.
 
+Finally started working on the project, starting with the initialization of a board and the ability to add bombs. The process of incrementing the neighboring cells took a lot of hard coding cases and probaly could have been done more efficiently.
