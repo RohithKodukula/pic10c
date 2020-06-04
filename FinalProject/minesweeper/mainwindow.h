@@ -20,6 +20,10 @@ public:
     MainWindow(int w, int h, int num);
     ~MainWindow();
 
+    void bomb_gen();
+    void printboard();
+    void placeMine(int x, int y);
+
 private:
     Ui::MainWindow *ui;
 
@@ -28,7 +32,5 @@ private:
     int numMines;
     std::vector<std::vector<int>> mines;
 
-    void bomb_gen();
-    void printboard();
 };
 #endif // MAINWINDOW_H
