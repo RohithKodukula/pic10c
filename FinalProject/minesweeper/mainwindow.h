@@ -2,11 +2,16 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
+#include <QGridLayout>
+#include <QPushButton>
+#include <QStackedWidget>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +31,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QGridLayout* layout;
 
     int width;
     int height;
