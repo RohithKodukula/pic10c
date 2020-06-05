@@ -9,12 +9,14 @@ Cell::Cell() :
 {
     button->setStyleSheet("height: 50px; width: 50px; font-size: 50px;");
     under->setText(QString::number(getNumber()));
+
     QFont font = under->font();
     font.setPointSize(30);
     under->setFont(font);
+    button->setFont(font);
     under->setAlignment(Qt::AlignCenter);
     under->setStyleSheet( styleSheet().append(QString("margin: 0; padding: 0;")) );
-    under->setStyleSheet( styleSheet().append(QString("QLabel {border: 1px solid gray;}")));
+    under->setStyleSheet( styleSheet().append(QString("border: 1px solid gray;")));
     QObject::connect(button, &QPushButton::clicked, this, &Cell::clear);
 
     addWidget(button);
@@ -57,16 +59,27 @@ void Cell::clear()
     emit clear_this(getX(), getY());
 }
 
-void Cell::update_label()
+void Cell::update_label(bool cheat)
 {
     under->setText(QString::number(getNumber()));
     switch(getNumber()){
-        case 0 : under->setText(""); break;
-        case -1 : under->setText("💣"); under->setStyleSheet("QLabel {color : black;}"); break;
-        case 1 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : blue;}"))); break;
-        case 2 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : green;}"))); break;
-        case 3 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : red;}"))); break;
-        case 4 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : purple;}"))); break;
-        case 5 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : maroon;}"))); break;
+        case 0 : under->setText("");  under->setStyleSheet("QLabel {color : red; border: 1px solid gray;}"); break;
+        case -1 :
+            under->setText("💣");
+            under->setStyleSheet("QLabel {color : black; border: 1px solid gray;}");
+            if(cheat)
+            {
+                button->setText("🚩");
+                button->setStyleSheet("QLabel {color : red;}");
+            }
+            break;
+        case 1 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : blue; border: 1px solid gray;}"))); break;
+        case 2 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : green; border: 1px solid gray;}"))); break;
+        case 3 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : red; border: 1px solid gray;}"))); break;
+        case 4 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : purple; border: 1px solid gray;}"))); break;
+        case 5 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : maroon; border: 1px solid gray;}"))); break;
+        case 6 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : turquoise; border: 1px solid gray;}"))); break;
+        case 7 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : black; border: 1px solid gray;}"))); break;
+        case 8 : under->setStyleSheet( styleSheet().append(QString("QLabel {color : gray; border: 1px solid gray;}"))); break;
     }
 }

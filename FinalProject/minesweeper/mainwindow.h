@@ -23,7 +23,7 @@ class MainWindow : public QMainWindow
 
 public:
     //width, height, and number of bombs on the board
-    MainWindow(int w, int h, int num);
+    MainWindow(int w, int h, int num, bool cheat = false);
     ~MainWindow();
 
     void update_bombs(); //update from initialization values (all zeroes)
@@ -41,6 +41,7 @@ private:
     int width;
     int height;
     int numMines;
+    bool cheat;
     std::vector<std::vector<Cell>> mines; //double vector of all the cell
 
 };

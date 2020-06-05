@@ -25,14 +25,16 @@ I ran into a problem where the radio buttons didn't properly update the grade on
 
 ## Final Project: Minesweeper
 ### Rohith's Section
-The main hinderance in starting the final project was my inability to compile in my Qt environment. Emailing back and forth with the TA I had to install Qt several times from scratch. This process is detailed above in the "Installation Problems" section.
+5/15/2020 The main hinderance in starting the final project was my inability to compile in my Qt environment. Emailing back and forth with the TA I had to install Qt several times from scratch. This process is detailed above in the "Installation Problems" section.
 
-Finally started working on the project, starting with the initialization of a board and the ability to add bombs. The process of incrementing the neighboring cells took a lot of hard coding cases and probaly could have been done more efficiently.
+5/31/2020 Finally started working on the project, starting with the initialization of a board and the ability to add bombs. The process of incrementing the neighboring cells took a lot of hard coding cases and probaly could have been done more efficiently.
  
- After trying to connect the QPushButtons with them disappearing I found it easier to make a new class called Cell that would act as the stacked widget that I needed. Started a new branch of this called 'rohith-experimental'.
+6/2/2020 After trying to connect the QPushButtons with them disappearing I found it easier to make a new class called Cell that would act as the stacked widget that I needed. Started a new branch of this called 'rohith-experimental'.
 
-On the experimental branch I moved a lot of the functionality from the MainWindow constructor to the Cell class where I added useful private variables and public member functions useful for updating the state of the board.
+6/5/2020 On the experimental branch I moved a lot of the functionality from the MainWindow constructor to the Cell class where I added useful private variables and public member functions useful for updating the state of the board.
 It's starting to look a little bit like minesweeper! Added colors to the numbers and bomb ascii to make it look similar to minsweeper.
+
+6/5/2020 Tried to add fonts to emulate classic minesweeper but failed because I couldn't figure out how to navigate QFontDatabase commands.
 
 ### Zoeb's Section
 * 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4

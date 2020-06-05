@@ -2,9 +2,10 @@
 #define CELL_H
 
 #include <QStackedWidget>
-#include <iostream>
 #include <QPushButton>
 #include <QLabel>
+#include <QFontDatabase>
+#include <iostream>
 
 class Cell : public QStackedWidget
 {
@@ -24,7 +25,7 @@ public:
     int getY();
     void setCoords(int x, int y);
 
-    void update_label(); //update from initialization values (all zeroes)
+    void update_label(bool cheat = false); //update from initialization values (all zeroes)
 
 public slots:
     void clear(); //runs when the button of the cell clicked

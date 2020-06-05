@@ -2,10 +2,11 @@
 #include "ui_mainwindow.h"
 #include "cell.cpp"
 
-MainWindow::MainWindow(int w, int h, int num):
+MainWindow::MainWindow(int w, int h, int num, bool c):
     width(w),
     height(h),
     numMines(num),
+    cheat(c),
     ui(new Ui::MainWindow)
 {
     srand(time(NULL));
@@ -287,7 +288,7 @@ void MainWindow::update_bombs()
         mines.push_back( std::vector<Cell>(height)  );
         for(int j = 0; j < height; ++j)
         {
-            mines[i][j].update_label();
+            mines[i][j].update_label(cheat);
         }
     }
 }
