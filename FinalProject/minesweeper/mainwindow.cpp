@@ -37,13 +37,14 @@ MainWindow::MainWindow(int w, int h, int num):
             under->setFont(font);
             under->setAlignment(Qt::AlignCenter);
             QObject::connect(button, &QPushButton::clicked, button, &QPushButton::deleteLater);
-            QObject::connect(&mines[i][j], &QStackedWidget::widgetRemoved, &mines[i][j], &Cell::clear);
+            //QObject::connect(&mines[i][j], &QStackedWidget::widgetRemoved, this, &MainWindow::);
 
             mines[i][j].addWidget(button);
             mines[i][j].addWidget(under);
             mines[i][j].setCurrentIndex(0);
 
             layout->addWidget(&mines[i][j], i, j);
+            bomb_gen(0,0);
         }
 
     }

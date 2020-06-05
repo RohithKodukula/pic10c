@@ -30,8 +30,3 @@ int Cell::getNumber()
 {
     return number;
 }
-
-void Cell::clear(int index)
-{
-    std::cout << "there we are... " << index << std::endl;
-}

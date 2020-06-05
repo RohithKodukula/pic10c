@@ -14,9 +14,6 @@ public:
     void operator=(int rhs);
     int getNumber();
 
-public slots:
-    void clear(int index);
-
 private:
     int number;
 };
