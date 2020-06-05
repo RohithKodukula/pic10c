@@ -9,7 +9,7 @@
 #include <iostream>
 #include "bomb.hpp"
 #include "minesweeper.hpp"
-
+#include "nonbombcell.hpp"
 //in board, 10 = bomb
 
 int main () {

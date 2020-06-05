@@ -18,6 +18,6 @@ public:
     void initializeBoard();
 private:
     int bombs;
-    int board [8][8]{};
+    int board [10][10]{};
 };
 #endif /* minesweeper_hpp */
