@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include <QObject>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +13,8 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QLabel>
+
+#include "cell.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,6 +31,9 @@ public:
     void bomb_gen(int x_clear, int y_clear);
     void placeMine(int x, int y);
 
+private slots:
+    void clear();
+
 private:
     Ui::MainWindow *ui;
     QGridLayout* layout;
@@ -35,7 +41,7 @@ private:
     int width;
     int height;
     int numMines;
-    std::vector<std::vector<int>> mines;
+    std::vector<std::vector<Cell>> mines;
 
 };
 #endif // MAINWINDOW_H

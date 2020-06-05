@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "cell.cpp"
 
 MainWindow::MainWindow(int w, int h, int num):
     width(w),
@@ -11,7 +12,7 @@ MainWindow::MainWindow(int w, int h, int num):
     ui->setupUi(this);
     for(int i = 0; i < width; ++i)
     {
-        mines.push_back( std::vector<int>(height)  );
+        mines.push_back( std::vector<Cell>(height)  );
         for(int j = 0; j < height; ++j)
         {
             mines[i][j] = 0;
@@ -23,33 +24,45 @@ MainWindow::MainWindow(int w, int h, int num):
     QWidget* centralWidget = new QWidget();
     for(int i = 0; i < width; ++i)
     {
-        mines.push_back( std::vector<int>(height)  );
+        mines.push_back( std::vector<Cell>(height)  );
         for(int j = 0; j < height; ++j)
         {
-            QStackedWidget *stack = new QStackedWidget();
-
             //button that covers numbers/bombs
             QPushButton* button = new QPushButton(" ");
-            button->setStyleSheet("height: 175px; width: 50px; font-size: 50px;");
-
+            button->setStyleSheet("height: 50px; width: 50px; font-size: 50px;");
             //text underneath with number/bomb
-            QLabel* under = new QLabel(QString::number(mines[i][j]));
+            QLabel* under = new QLabel(QString::number(mines[i][j].getNumber()));
             QFont font = under->font();
             font.setPointSize(30);
-            font.setBold(true);
             under->setFont(font);
             under->setAlignment(Qt::AlignCenter);
+            QObject::connect(button, &QPushButton::clicked, this, &MainWindow::clear);
 
-            stack->addWidget(button);
-            stack->addWidget(under);
-            stack->setCurrentIndex(0);
+            mines[i][j].addWidget(button);
+            mines[i][j].addWidget(under);
+            mines[i][j].setCurrentIndex(0);
 
-            layout->addWidget(stack, i, j);
+            layout->addWidget(&mines[i][j], i, j);
         }
+
     }
     centralWidget->setLayout(layout);
     setCentralWidget(centralWidget);
 
+}
+
+//clearing a clicked button (slot)
+void MainWindow::clear()
+{
+    bomb_gen(0,0);
+    std::cout << "clicked!" << std::endl;
+    for(int i = 0; i < width; ++i)
+    {
+        for(int j = 0; j < height; ++j)
+        {
+            mines[i][j].setCurrentIndex(1);
+        }
+    }
 }
 
 //handles incrementing neighboring cells on addition of bomb
@@ -182,7 +195,7 @@ void MainWindow::bomb_gen(int x_clear, int y_clear)
     {
         x = rand() % height;
         y = rand() % width;
-        if(mines[x][y] != -1 || mines[x_clear][y_clear])
+        if(mines[x][y] != -1 && (x != x_clear && y != y_clear))
         {
             mines[x][y] = -1;
             placeMine(x,y);
