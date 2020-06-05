@@ -24,11 +24,14 @@ The layout I had implemented worked just fine. I connected all the signals from 
 I ran into a problem where the radio buttons didn't properly update the grade on press. Quickly resolved using the `clicked()` signal.
 
 ## Final Project: Minesweeper
+### Rohith's Section
 The main hinderance in starting the final project was my inability to compile in my Qt environment. Emailing back and forth with the TA I had to install Qt several times from scratch. This process is detailed above in the "Installation Problems" section.
 
 Finally started working on the project, starting with the initialization of a board and the ability to add bombs. The process of incrementing the neighboring cells took a lot of hard coding cases and probaly could have been done more efficiently.
+ 
+ After trying to connect the QPushButtons with them disappearing I found it easier to make a new class called Cell that would act as the stacked widget that I needed. Started a new branch of this called 'rohith-experimental'.
 
-### Zoeb's section
+### Zoeb's Section
 * 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4
 * 06/04/2020 created new branch off master (experimental-zoeb) - working on how to design the ui. Current possible ideas include using key sequence edit widget to take input (U for uncover, F for flag) also use stack widget container to display the resulting change (if U is pressed, display either bomb or number, if F is pressed, display flagged graphic)
   * currently, I am working on how to get all of these widgets connected, I need to make another MainWindow constructor for widgets. This turned out to be harder than expected so I am going to create a new branch off of master and work on game functionality.
