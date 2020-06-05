@@ -44,3 +44,4 @@ Finally started working on the project, starting with the initialization of a bo
                                                    0   0  10   0   0   0  10   0
 </pre>
  tomorrow I will attempt to increment the adjacent values so they reflect how many bombs are nearby. I will also try to play around with QT and work on connecting the UI to the code.
+ * 06/05/2020 so incrementing adjacent values was harder than I thought... I tried multiple methods but couldn't seem to get them to work - I also added a nonbombcell class but it wasn't useful. However, I have kept the file as I may be able to figure out how to use it. I will now move on to messing aroud with QT to figure out how the UI may work
