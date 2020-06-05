@@ -31,6 +31,9 @@ Finally started working on the project, starting with the initialization of a bo
  
  After trying to connect the QPushButtons with them disappearing I found it easier to make a new class called Cell that would act as the stacked widget that I needed. Started a new branch of this called 'rohith-experimental'.
 
+On the experimental branch I moved a lot of the functionality from the MainWindow constructor to the Cell class where I added useful private variables and public member functions useful for updating the state of the board.
+It's starting to look a little bit like minesweeper!
+
 ### Zoeb's Section
 * 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4
 * 06/04/2020 created new branch off master (experimental-zoeb) - working on how to design the ui. Current possible ideas include using key sequence edit widget to take input (U for uncover, F for flag) also use stack widget container to display the resulting change (if U is pressed, display either bomb or number, if F is pressed, display flagged graphic)

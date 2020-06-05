@@ -71,4 +71,11 @@ void Cell::flip()
 void Cell::update_label()
 {
     under->setText(QString::number(getNumber()));
+    switch(getNumber()){
+        case 1 : under->setStyleSheet("QLabel {color : blue;}"); break;
+        case 2 : under->setStyleSheet("QLabel {color : green;}"); break;
+        case 3 : under->setStyleSheet("QLabel {color : red;}"); break;
+        case 4 : under->setStyleSheet("QLabel {color : purple;}"); break;
+        case 5 : under->setStyleSheet("QLabel {color : maroon;}"); break;
+    }
 }
