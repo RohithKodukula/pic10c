@@ -28,7 +28,7 @@ MainWindow::MainWindow(int w, int h, int num):
         for(int j = 0; j < height; ++j)
         {
             //button that covers numbers/bombs
-            QPushButton* button = new QPushButton(" ");
+            QPushButton* button = new QPushButton();
             button->setStyleSheet("height: 50px; width: 50px; font-size: 50px;");
             //text underneath with number/bomb
             QLabel* under = new QLabel(QString::number(mines[i][j].getNumber()));
@@ -36,7 +36,8 @@ MainWindow::MainWindow(int w, int h, int num):
             font.setPointSize(30);
             under->setFont(font);
             under->setAlignment(Qt::AlignCenter);
-            QObject::connect(button, &QPushButton::clicked, this, &MainWindow::clear);
+            QObject::connect(button, &QPushButton::clicked, button, &QPushButton::deleteLater);
+            QObject::connect(&mines[i][j], &QStackedWidget::widgetRemoved, &mines[i][j], &Cell::clear);
 
             mines[i][j].addWidget(button);
             mines[i][j].addWidget(under);
@@ -49,20 +50,6 @@ MainWindow::MainWindow(int w, int h, int num):
     centralWidget->setLayout(layout);
     setCentralWidget(centralWidget);
 
-}
-
-//clearing a clicked button (slot)
-void MainWindow::clear()
-{
-    bomb_gen(0,0);
-    std::cout << "clicked!" << std::endl;
-    for(int i = 0; i < width; ++i)
-    {
-        for(int j = 0; j < height; ++j)
-        {
-            mines[i][j].setCurrentIndex(1);
-        }
-    }
 }
 
 //handles incrementing neighboring cells on addition of bomb

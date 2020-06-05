@@ -31,9 +31,6 @@ public:
     void bomb_gen(int x_clear, int y_clear);
     void placeMine(int x, int y);
 
-private slots:
-    void clear();
-
 private:
     Ui::MainWindow *ui;
     QGridLayout* layout;

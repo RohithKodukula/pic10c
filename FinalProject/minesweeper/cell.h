@@ -2,6 +2,7 @@
 #define CELL_H
 
 #include <QStackedWidget>
+#include <iostream>
 
 class Cell : public QStackedWidget
 {
@@ -12,6 +13,9 @@ public:
     bool operator!=(int rhs);
     void operator=(int rhs);
     int getNumber();
+
+public slots:
+    void clear(int index);
 
 private:
     int number;
