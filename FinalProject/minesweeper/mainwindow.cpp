@@ -16,8 +16,10 @@ MainWindow::MainWindow(int w, int h, int num):
         for(int j = 0; j < height; ++j)
         {
             mines[i][j] = 0;
+            mines[i][j].setCoords(i,j);
         }
     }
+    bomb_gen(0,0);
     std::cout << "constructed window..." << std::endl;
 
     layout = new QGridLayout();
@@ -27,26 +29,9 @@ MainWindow::MainWindow(int w, int h, int num):
         mines.push_back( std::vector<Cell>(height)  );
         for(int j = 0; j < height; ++j)
         {
-            //button that covers numbers/bombs
-            QPushButton* button = new QPushButton();
-            button->setStyleSheet("height: 50px; width: 50px; font-size: 50px;");
-            //text underneath with number/bomb
-            QLabel* under = new QLabel(QString::number(mines[i][j].getNumber()));
-            QFont font = under->font();
-            font.setPointSize(30);
-            under->setFont(font);
-            under->setAlignment(Qt::AlignCenter);
-            QObject::connect(button, &QPushButton::clicked, button, &QPushButton::deleteLater);
-            //QObject::connect(&mines[i][j], &QStackedWidget::widgetRemoved, this, &MainWindow::);
-
-            mines[i][j].addWidget(button);
-            mines[i][j].addWidget(under);
-            mines[i][j].setCurrentIndex(0);
-
             layout->addWidget(&mines[i][j], i, j);
-            bomb_gen(0,0);
+            mines[i][j].setCurrentIndex(0);
         }
-
     }
     centralWidget->setLayout(layout);
     setCentralWidget(centralWidget);
@@ -173,6 +158,18 @@ void MainWindow::placeMine(int x, int y)
     }
 }
 
+void MainWindow::update_bombs()
+{
+    for(int i = 0; i < width; ++i)
+    {
+        mines.push_back( std::vector<Cell>(height)  );
+        for(int j = 0; j < height; ++j)
+        {
+            mines[i][j].update_label();
+        }
+    }
+}
+
 //adds bombs where they are allowed to be
 void MainWindow::bomb_gen(int x_clear, int y_clear)
 {
@@ -183,13 +180,15 @@ void MainWindow::bomb_gen(int x_clear, int y_clear)
     {
         x = rand() % height;
         y = rand() % width;
-        if(mines[x][y] != -1 && (x != x_clear && y != y_clear))
+        if(mines[x][y] != -1 && !(x == x_clear && y == y_clear))
         {
             mines[x][y] = -1;
             placeMine(x,y);
             counter++;
         }
     }
+    update_bombs();
+    std::cout << "this is bomb_gen" << std::endl;
 }
 
 MainWindow::~MainWindow()

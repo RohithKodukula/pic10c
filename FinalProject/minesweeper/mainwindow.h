@@ -28,6 +28,7 @@ public:
     MainWindow(int w, int h, int num);
     ~MainWindow();
 
+    void update_bombs();
     void bomb_gen(int x_clear, int y_clear);
     void placeMine(int x, int y);
 
