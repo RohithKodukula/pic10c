@@ -33,3 +33,14 @@ Finally started working on the project, starting with the initialization of a bo
 * 06/04/2020 created new branch off master (experimental-zoeb) - working on how to design the ui. Current possible ideas include using key sequence edit widget to take input (U for uncover, F for flag) also use stack widget container to display the resulting change (if U is pressed, display either bomb or number, if F is pressed, display flagged graphic)
   * currently, I am working on how to get all of these widgets connected, I need to make another MainWindow constructor for widgets. This turned out to be harder than expected so I am going to create a new branch off of master and work on game functionality.
 * 06/04/2020 created new branch off master (experimental_game_funtionality-zoeb) - going to try and add some more game functionality, like what happens if you press a bomb
+* 06/05/2020 progress update - So I was able to make some possible classes for bombs and a game, running these together will generate an 8x8 board (made with a 2D array) with 8 bombs (set to int value 10) and 56 blank spaces (int value 0). Here is an example of what that looks like <pre>
+                                                   0   0   0   0   0   0   0   0
+                                                   0   0   0   0   0   0   0   0
+                                                   0   0   0   0   0   0   0   0
+                                                   0   0   0   0  10   0   0   0
+                                                  10   0   0   0  10   0   0   0
+                                                   0   0   0   0   0   0  10  10
+                                                   0   0  10   0   0   0   0   0
+                                                   0   0  10   0   0   0  10   0
+</pre>
+ tomorrow I will attempt to increment the adjacent values so they reflect how many bombs are nearby. I will also try to play around with QT and work on connecting the UI to the code.
