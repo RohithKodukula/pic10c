@@ -23,6 +23,7 @@ MainWindow::MainWindow(int w, int h, int num):
     std::cout << "constructed window..." << std::endl;
 
     layout = new QGridLayout();
+    layout->setSpacing(0);
     QWidget* centralWidget = new QWidget();
     for(int i = 0; i < width; ++i)
     {
@@ -31,11 +32,131 @@ MainWindow::MainWindow(int w, int h, int num):
         {
             layout->addWidget(&mines[i][j], i, j);
             mines[i][j].setCurrentIndex(0);
+            //QObject::connect(&mines[i][j],SIGNAL(clear_this), this, SLOT(clear_neighbors));
         }
     }
     centralWidget->setLayout(layout);
     setCentralWidget(centralWidget);
 
+}
+
+void MainWindow::clear_neighbors(int x, int y)
+{//top left corner
+    if(y == 0 && x == 0)
+    {
+        if(mines[x][y+1] == 0)
+            mines[x][y+1].clear();
+        if(mines[x+1][y] == 0)
+            mines[x+1][y].clear();
+        if(mines[x+1][y+1] == 0)
+            mines[x+1][y+1].clear();
+    }
+    //top right corner
+    else if(y == (width - 1) && x == 0)
+    {
+        if(mines[x][y-1] == 0)
+            mines[x][y-1].clear();
+        if(mines[x+1][y-1] == 0)
+            mines[x+1][y-1].clear();
+        if(mines[x+1][y] == 0)
+            mines[x+1][y].clear();
+    }
+    //bottom right corner
+    else if(y == (width - 1) && x == (height -1))
+    {
+        if(mines[x][y-1] == 0)
+            mines[x][y-1].clear();
+        if(mines[x-1][y-1] == 0)
+            mines[x-1][y-1].clear();
+        if(mines[x-1][y] == 0)
+            mines[x-1][y].clear();
+    }
+    //bottom left corner
+    else if(y == 0 && x == (height -1))
+    {
+        if(mines[x][y+1] == 0)
+            mines[x][y+1].clear();
+        if(mines[x-1][y+1] == 0)
+            mines[x-1][y+1].clear();
+        if(mines[x-1][y] == 0)
+            mines[x-1][y].clear();
+    }
+    //right side
+    else if(y == (width - 1) && x != 0)
+    {
+        if(mines[x-1][y] == 0)
+            mines[x-1][y].clear();
+        if(mines[x+1][y-1] == 0)
+            mines[x+1][y-1].clear();
+        if(mines[x][y-1] == 0)
+            mines[x][y-1].clear();
+        if(mines[x-1][y-1] == 0)
+            mines[x-1][y-1].clear();
+        if(mines[x+1][y] == 0)
+            mines[x+1][y].clear();
+    }
+    //left side
+    else if(y == 0 && x != 0)
+    {
+        if(mines[x+1][y] == 0)
+            mines[x+1][y].clear();
+        if(mines[x-1][y] == 0)
+            mines[x-1][y].clear();
+        if(mines[x+1][y+1] == 0)
+            mines[x+1][y+1].clear();
+        if(mines[x][y+1] == 0)
+            mines[x][y+1].clear();
+        if(mines[x-1][y+1] == 0)
+            mines[x-1][y+1].clear();
+    }
+    //bottom side
+    else if(y != 0 && x == (width - 1))
+    {
+        if(mines[x][y-1] == 0)
+            mines[x][y-1].clear();
+        if(mines[x][y+1] == 0)
+            mines[x][y+1].clear();
+        if(mines[x-1][y-1] == 0)
+            mines[x-1][y-1].clear();
+        if(mines[x-1][y] == 0)
+            mines[x-1][y].clear();
+        if(mines[x-1][y+1] == 0)
+            mines[x-1][y+1].clear();
+    }
+    //top side
+    else if(y != 0 && x == 0)
+    {
+        if(mines[x][y-1] == 0)
+            mines[x][y-1].clear();
+        if(mines[x][y+1] == 0)
+            mines[x][y+1].clear();
+        if(mines[x+1][y-1] == 0)
+            mines[x+1][y-1].clear();
+        if(mines[x+1][y] == 0)
+            mines[x+1][y].clear();
+        if(mines[x+1][y+1] == 0)
+            mines[x+1][y+1].clear();
+    }
+    else
+    {
+        if(mines[x-1][y] == 0)
+            mines[x-1][y].clear();
+        if(mines[x-1][y-1] == 0)
+            mines[x-1][y-1].clear();
+        if(mines[x][y-1] == 0)
+            mines[x][y-1].clear();
+        if(mines[x+1][y-1] == 0)
+            mines[x+1][y-1].clear();
+        if(mines[x+1][y] == 0)
+            mines[x+1][y].clear();
+        if(mines[x-1][y+1] == 0)
+            mines[x-1][y+1].clear();
+        if(mines[x][y+1] == 0)
+            mines[x][y+1].clear();
+        if(mines[x+1][y+1] == 0)
+            mines[x+1][y+1].clear();
+    }
+    update_bombs();
 }
 
 //handles incrementing neighboring cells on addition of bomb
@@ -156,6 +277,7 @@ void MainWindow::placeMine(int x, int y)
         if(mines[x+1][y+1] != -1)
             mines[x+1][y+1] += 1;
     }
+    update_bombs();
 }
 
 void MainWindow::update_bombs()
@@ -187,7 +309,6 @@ void MainWindow::bomb_gen(int x_clear, int y_clear)
             counter++;
         }
     }
-    update_bombs();
     std::cout << "this is bomb_gen" << std::endl;
 }
 
