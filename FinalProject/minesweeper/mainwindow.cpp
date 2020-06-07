@@ -3,15 +3,16 @@
 #include "cell.cpp"
 
 MainWindow::MainWindow(int w, int h, int num, bool c):
+    ui(new Ui::MainWindow),
     width(w),
     height(h),
     numMines(num),
     cheat(c),
-    started(false),
-    ui(new Ui::MainWindow)
+    started(false)
 {
     srand(time(NULL));
     ui->setupUi(this);
+    this->setWindowTitle("Minesweeper");
     for(int i = 0; i < width; ++i)
     {
         mines.push_back( std::vector<Cell>(height)  );
@@ -62,7 +63,6 @@ void MainWindow::clear_neighbors(int x, int y)
         bomb_gen(x,y);
         started = true;
     }
-    std::cout << "clearing neigbors" << std::endl;
     //top left corner
     if(y == 0 && x == 0)
     {
@@ -334,15 +334,15 @@ void MainWindow::bomb_gen(int x_clear, int y_clear)
         x = rand() % height;
         y = rand() % width;
         if(mines[x][y] != -1 &&
-                !(x == x_clear && y == y_clear) ||
-                !(x == x_clear-1 && y == y_clear+1) ||
-                !(x == x_clear-1 && y == y_clear) ||
-                !(x == x_clear-1 && y == y_clear-1) ||
-                !(x == x_clear+1 && y == y_clear+1) ||
-                !(x == x_clear+1 && y == y_clear) ||
-                !(x == x_clear+1 && y == y_clear-1) ||
-                !(x == x_clear && y == y_clear+1) ||
-                !(x == x_clear && y == y_clear-1)
+                (!(x == x_clear && y == y_clear) &&
+                !(x == x_clear-1 && y == y_clear+1) &&
+                !(x == x_clear-1 && y == y_clear) &&
+                !(x == x_clear-1 && y == y_clear-1) &&
+                !(x == x_clear+1 && y == y_clear+1) &&
+                !(x == x_clear+1 && y == y_clear) &&
+                !(x == x_clear+1 && y == y_clear-1) &&
+                !(x == x_clear && y == y_clear+1) &&
+                !(x == x_clear && y == y_clear-1))
                 )
         {
             mines[x][y] = -1;
@@ -350,7 +350,7 @@ void MainWindow::bomb_gen(int x_clear, int y_clear)
             counter++;
         }
     }
-    std::cout << "this is bomb_gen" << std::endl;
+    std::cout << "bombs generated..." << x_clear << " " << y_clear << std::endl;
 }
 
 MainWindow::~MainWindow()
