@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w(13,8,10, false);
+    MainWindow w(8,8,10, false);
     w.show();
     return a.exec();
 }

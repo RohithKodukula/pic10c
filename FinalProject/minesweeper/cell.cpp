@@ -4,6 +4,7 @@ Cell::Cell() :
     number(0),
     x_pos(0),
     y_pos(0),
+    cleared(false),
     button(new QPushButton()),
     under(new QLabel())
 {
@@ -17,6 +18,8 @@ Cell::Cell() :
     under->setAlignment(Qt::AlignCenter);
     under->setStyleSheet( styleSheet().append(QString("margin: 0; padding: 0;")) );
     under->setStyleSheet( styleSheet().append(QString("border: 1px solid gray;")));
+
+    //connecting signals and slots
     QObject::connect(button, &QPushButton::clicked, this, &Cell::clear);
 
     addWidget(button);
@@ -53,10 +56,18 @@ void Cell::setCoords(int x, int y)
 void Cell::clear()
 {
     if(currentIndex() == 0)
+    {
         this->setCurrentIndex(1);
-    else
-        this->setCurrentIndex(0);
-    emit clear_this(getX(), getY());
+        cleared = true;
+    }
+    if(getNumber() == 0)
+        emit clear_this(getX(), getY());
+}
+
+void Cell::mousePressEvent(QMouseEvent *e)
+{
+    if(e->button()==Qt::RightButton)
+        emit rightClicked(getX(), getY());
 }
 
 void Cell::update_label(bool cheat)

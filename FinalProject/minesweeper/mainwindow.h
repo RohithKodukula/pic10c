@@ -31,8 +31,10 @@ public:
                                              //existing bombs or x_clear y_clear coord
 
     void placeMine(int x, int y); //places bomb and updates neighbors
-
     void clear_neighbors(int x, int y); //clear neighbors too if they have 0 neighbors
+
+private slots:
+    void flag(int x, int y);
 
 private:
     Ui::MainWindow *ui;

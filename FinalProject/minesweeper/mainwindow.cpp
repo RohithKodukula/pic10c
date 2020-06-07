@@ -16,8 +16,11 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
         mines.push_back( std::vector<Cell>(height)  );
         for(int j = 0; j < height; ++j)
         {
-            mines[i][j] = 0;
+            mines[  i][j] = 0;
             mines[i][j].setCoords(i,j);
+            QObject::connect(&mines[i][j], &Cell::rightClicked, this, &MainWindow::flag);
+            QObject::connect(&mines[i][j], &Cell::clear_this, this, &MainWindow::clear_neighbors);
+
         }
     }
     bomb_gen(0,0);
@@ -33,7 +36,6 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
         {
             layout->addWidget(&mines[i][j], i, j);
             mines[i][j].setCurrentIndex(0);
-            //QObject::connect(&mines[i][j],SIGNAL(clear_this), this, SLOT(clear_neighbors));
         }
     }
     centralWidget->setLayout(layout);
@@ -41,121 +43,144 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
 
 }
 
+void MainWindow::flag(int x, int y)
+{
+    if(mines[x][y].button->text() == "🚩")
+    {
+        mines[x][y].button->setText("");
+    }
+    else
+    {
+        mines[x][y].button->setText("🚩");
+    }
+}
+
 void MainWindow::clear_neighbors(int x, int y)
-{//top left corner
+{
+    std::cout << "clearing neigbors" << std::endl;
+    //top left corner
     if(y == 0 && x == 0)
     {
-        if(mines[x][y+1] == 0)
+        if(!mines[x][y+1].cleared  && mines[x][y+1] == 0)
             mines[x][y+1].clear();
-        if(mines[x+1][y] == 0)
+        if(!mines[x+1][y].cleared  && mines[x+1][y] == 0)
             mines[x+1][y].clear();
-        if(mines[x+1][y+1] == 0)
+        if(!mines[x+1][y+1].cleared  && mines[x+1][y+1] == 0)
             mines[x+1][y+1].clear();
+        return;
     }
     //top right corner
-    else if(y == (width - 1) && x == 0)
+    else if( y == (width - 1) && x == 0)
     {
-        if(mines[x][y-1] == 0)
+        if(!mines[x][y-1].cleared  && mines[x][y-1] == 0)
             mines[x][y-1].clear();
-        if(mines[x+1][y-1] == 0)
+        if(!mines[x+1][y-1].cleared  && mines[x+1][y-1] == 0)
             mines[x+1][y-1].clear();
-        if(mines[x+1][y] == 0)
+        if(!mines[x+1][y].cleared  && mines[x+1][y] == 0)
             mines[x+1][y].clear();
+        return;
     }
     //bottom right corner
     else if(y == (width - 1) && x == (height -1))
     {
-        if(mines[x][y-1] == 0)
+        if(!mines[x][y-1].cleared  && mines[x][y-1] == 0)
             mines[x][y-1].clear();
-        if(mines[x-1][y-1] == 0)
+        if(!mines[x-1][y-1].cleared  && mines[x-1][y-1] == 0)
             mines[x-1][y-1].clear();
-        if(mines[x-1][y] == 0)
+        if(!mines[x-1][y].cleared  && mines[x-1][y] == 0)
             mines[x-1][y].clear();
+        return;
     }
     //bottom left corner
     else if(y == 0 && x == (height -1))
     {
-        if(mines[x][y+1] == 0)
+        if(!mines[x][y+1].cleared  && mines[x][y+1] == 0)
             mines[x][y+1].clear();
-        if(mines[x-1][y+1] == 0)
+        if(!mines[x-1][y+1].cleared  && mines[x-1][y+1] == 0)
             mines[x-1][y+1].clear();
-        if(mines[x-1][y] == 0)
+        if(!mines[x-1][y].cleared  && mines[x-1][y] == 0)
             mines[x-1][y].clear();
+        return;
     }
     //right side
     else if(y == (width - 1) && x != 0)
     {
-        if(mines[x-1][y] == 0)
+        if(!mines[x-1][y].cleared  && mines[x-1][y] == 0)
             mines[x-1][y].clear();
-        if(mines[x+1][y-1] == 0)
+        if(!mines[x+1][y-1].cleared  && mines[x+1][y-1] == 0)
             mines[x+1][y-1].clear();
-        if(mines[x][y-1] == 0)
+        if(!mines[x][y-1].cleared  && mines[x][y-1] == 0)
             mines[x][y-1].clear();
-        if(mines[x-1][y-1] == 0)
+        if(!mines[x-1][y-1].cleared  && mines[x-1][y-1] == 0)
             mines[x-1][y-1].clear();
-        if(mines[x+1][y] == 0)
+        if(!mines[x+1][y].cleared  && mines[x+1][y] == 0)
             mines[x+1][y].clear();
+        return;
     }
     //left side
     else if(y == 0 && x != 0)
     {
-        if(mines[x+1][y] == 0)
+        if(!mines[x+1][y].cleared  && mines[x+1][y] == 0)
             mines[x+1][y].clear();
-        if(mines[x-1][y] == 0)
+        if(!mines[x-1][y].cleared  && mines[x-1][y] == 0)
             mines[x-1][y].clear();
-        if(mines[x+1][y+1] == 0)
+        if(!mines[x+1][y+1].cleared  && mines[x+1][y+1] == 0)
             mines[x+1][y+1].clear();
-        if(mines[x][y+1] == 0)
+        if(!mines[x][y+1].cleared  && mines[x][y+1] == 0)
             mines[x][y+1].clear();
-        if(mines[x-1][y+1] == 0)
+        if(!mines[x-1][y+1].cleared  && mines[x-1][y+1] == 0)
             mines[x-1][y+1].clear();
+        return;
     }
     //bottom side
     else if(y != 0 && x == (width - 1))
     {
-        if(mines[x][y-1] == 0)
+        if(!mines[x][y-1].cleared  && mines[x][y-1] == 0)
             mines[x][y-1].clear();
-        if(mines[x][y+1] == 0)
+        if(!mines[x][y+1].cleared  && mines[x][y+1] == 0)
             mines[x][y+1].clear();
-        if(mines[x-1][y-1] == 0)
+        if(!mines[x-1][y-1].cleared  && mines[x-1][y-1] == 0)
             mines[x-1][y-1].clear();
-        if(mines[x-1][y] == 0)
+        if(!mines[x-1][y].cleared  && mines[x-1][y] == 0)
             mines[x-1][y].clear();
-        if(mines[x-1][y+1] == 0)
+        if(!mines[x-1][y+1].cleared  && mines[x-1][y+1] == 0)
             mines[x-1][y+1].clear();
+        return;
     }
     //top side
     else if(y != 0 && x == 0)
     {
-        if(mines[x][y-1] == 0)
+        if(!mines[x][y-1].cleared  && mines[x][y-1] == 0)
             mines[x][y-1].clear();
-        if(mines[x][y+1] == 0)
+        if(!mines[x][y+1].cleared  && mines[x][y+1] == 0)
             mines[x][y+1].clear();
-        if(mines[x+1][y-1] == 0)
+        if(!mines[x+1][y-1].cleared  && mines[x+1][y-1] == 0)
             mines[x+1][y-1].clear();
-        if(mines[x+1][y] == 0)
+        if(!mines[x+1][y].cleared  && mines[x+1][y] == 0)
             mines[x+1][y].clear();
-        if(mines[x+1][y+1] == 0)
+        if(!mines[x+1][y+1].cleared  && mines[x+1][y+1] == 0)
             mines[x+1][y+1].clear();
+        return;
     }
     else
     {
-        if(mines[x-1][y] == 0)
+        if(!mines[x-1][y].cleared  && mines[x-1][y] == 0)
             mines[x-1][y].clear();
-        if(mines[x-1][y-1] == 0)
+        if(!mines[x-1][y-1].cleared  && mines[x-1][y-1] == 0)
             mines[x-1][y-1].clear();
-        if(mines[x][y-1] == 0)
+        if(!mines[x][y-1].cleared  && mines[x][y-1] == 0)
             mines[x][y-1].clear();
-        if(mines[x+1][y-1] == 0)
+        if(!mines[x+1][y-1].cleared  && mines[x+1][y-1] == 0)
             mines[x+1][y-1].clear();
-        if(mines[x+1][y] == 0)
+        if(!mines[x+1][y].cleared  && mines[x+1][y] == 0)
             mines[x+1][y].clear();
-        if(mines[x-1][y+1] == 0)
+        if(!mines[x-1][y+1].cleared  && mines[x-1][y+1] == 0)
             mines[x-1][y+1].clear();
-        if(mines[x][y+1] == 0)
+        if(!mines[x][y+1].cleared  && mines[x][y+1] == 0)
             mines[x][y+1].clear();
-        if(mines[x+1][y+1] == 0)
+        if(!mines[x+1][y+1].cleared  && mines[x+1][y+1] == 0)
             mines[x+1][y+1].clear();
+        return;
     }
     update_bombs();
 }

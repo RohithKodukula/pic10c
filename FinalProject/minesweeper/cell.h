@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QFontDatabase>
+#include <QMouseEvent>
 #include <iostream>
 
 class Cell : public QStackedWidget
@@ -27,19 +28,22 @@ public:
 
     void update_label(bool cheat = false); //update from initialization values (all zeroes)
 
+    QPushButton* button;
+    QLabel* under;
+    bool cleared;
+
 public slots:
     void clear(); //runs when the button of the cell clicked
+    void mousePressEvent(QMouseEvent *e);
 
 signals:
     void clear_this(int x, int y); //signal emitted from clear to pass on coordinates
+    void rightClicked(int x, int y); //signal emitted from clear to pass on coordinates
 
 private:
     int number;
     int x_pos;
     int y_pos;
-
-    QPushButton* button;
-    QLabel* under;
 };
 
 #endif // CELL_H
