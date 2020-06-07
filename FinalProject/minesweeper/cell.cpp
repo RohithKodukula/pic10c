@@ -19,8 +19,7 @@ Cell::Cell() :
     under->setStyleSheet( styleSheet().append(QString("margin: 0; padding: 0;")) );
     under->setStyleSheet( styleSheet().append(QString("border: 1px solid gray;")));
 
-    //connecting signals and slots
-    QObject::connect(button, &QPushButton::clicked, this, &Cell::clear);
+    QObject::connect(button, &QPushButton::clicked, this, &Cell::clear); //connecting signals and slots
 
     addWidget(button);
     addWidget(under);
