@@ -44,6 +44,8 @@ private:
     int height;
     int numMines;
     bool cheat;
+    bool started;
+
     std::vector<std::vector<Cell>> mines; //double vector of all the cell
 
 };

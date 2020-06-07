@@ -7,6 +7,7 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
     height(h),
     numMines(num),
     cheat(c),
+    started(false),
     ui(new Ui::MainWindow)
 {
     srand(time(NULL));
@@ -23,7 +24,6 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
 
         }
     }
-    bomb_gen(0,0);
     std::cout << "constructed window..." << std::endl;
 
     layout = new QGridLayout();
@@ -57,6 +57,11 @@ void MainWindow::flag(int x, int y)
 
 void MainWindow::clear_neighbors(int x, int y)
 {
+    if(started  == false)
+    {
+        bomb_gen(x,y);
+        started = true;
+    }
     std::cout << "clearing neigbors" << std::endl;
     //top left corner
     if(y == 0 && x == 0)
@@ -328,7 +333,17 @@ void MainWindow::bomb_gen(int x_clear, int y_clear)
     {
         x = rand() % height;
         y = rand() % width;
-        if(mines[x][y] != -1 && !(x == x_clear && y == y_clear))
+        if(mines[x][y] != -1 &&
+                !(x == x_clear && y == y_clear) ||
+                !(x == x_clear-1 && y == y_clear+1) ||
+                !(x == x_clear-1 && y == y_clear) ||
+                !(x == x_clear-1 && y == y_clear-1) ||
+                !(x == x_clear+1 && y == y_clear+1) ||
+                !(x == x_clear+1 && y == y_clear) ||
+                !(x == x_clear+1 && y == y_clear-1) ||
+                !(x == x_clear && y == y_clear+1) ||
+                !(x == x_clear && y == y_clear-1)
+                )
         {
             mines[x][y] = -1;
             placeMine(x,y);
