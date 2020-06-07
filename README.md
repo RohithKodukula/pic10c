@@ -36,7 +36,7 @@ It's starting to look a little bit like minesweeper! Added colors to the numbers
 
 6/5/2020 Tried to add fonts to emulate classic minesweeper but failed because I couldn't figure out how to navigate QFontDatabase commands.
 
-6/7/2020 Added right-click event for flagging and started working on proper clearing algorithm for neighboring cells again. Half successful so far.
+6/7/2020 Added right-click event for flagging and also proper neighbor cell clearing.
 
 ### Zoeb's Section
 * 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4
