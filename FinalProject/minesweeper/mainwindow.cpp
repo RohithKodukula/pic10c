@@ -13,15 +13,16 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
     srand(time(NULL));
     ui->setupUi(this);
     this->setWindowTitle("Minesweeper");
-    for(int i = 0; i < width; ++i)
+    for(int i = 0; i < height; ++i)
     {
-        mines.push_back( std::vector<Cell>(height)  );
-        for(int j = 0; j < height; ++j)
+        mines.push_back( std::vector<Cell>(width)  );
+        for(int j = 0; j < width; ++j)
         {
             mines[  i][j] = 0;
             mines[i][j].setCoords(i,j);
             QObject::connect(&mines[i][j], &Cell::rightClicked, this, &MainWindow::flag);
             QObject::connect(&mines[i][j], &Cell::clear_this, this, &MainWindow::clear_neighbors);
+            QObject::connect(&mines[i][j], &Cell::check_win, this, &MainWindow::check_game);
 
         }
     }
@@ -41,7 +42,6 @@ MainWindow::MainWindow(int w, int h, int num, bool c):
     }
     centralWidget->setLayout(layout);
     setCentralWidget(centralWidget);
-
 }
 
 void MainWindow::flag(int x, int y)
@@ -63,6 +63,7 @@ void MainWindow::clear_neighbors(int x, int y)
         bomb_gen(x,y);
         started = true;
     }
+    update_bombs();
     //top left corner
     if(y == 0 && x == 0)
     {
@@ -187,7 +188,6 @@ void MainWindow::clear_neighbors(int x, int y)
             mines[x+1][y+1].clear();
         return;
     }
-    update_bombs();
 }
 
 //handles incrementing neighboring cells on addition of bomb
@@ -320,6 +320,31 @@ void MainWindow::update_bombs()
         {
             mines[i][j].update_label(cheat);
         }
+    }
+}
+
+void MainWindow::check_game()
+{
+    std::cout << "checking" << std::endl;
+    bool win = true;
+    for(int i = 0; i < width; ++i)
+        for(int j = 0; j < height; ++j)
+            if(mines[i][j] != -1 && !mines[i][j].cleared)
+                win = false;
+    bool lose = false;
+    for(int i = 0; i < width; ++i)
+    {
+        for(int j = 0; j < height; ++j)
+        {
+            if(mines[i][j] == -1 && mines[i][j].cleared)
+                lose = true;
+        }
+    }
+    if(win || lose)
+    {
+        QWidget *wdg = new QWidget;
+
+        wdg->show();
     }
 }
 

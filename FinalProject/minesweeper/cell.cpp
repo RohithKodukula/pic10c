@@ -1,12 +1,12 @@
 #include "cell.h"
 
 Cell::Cell() :
+    button(new QPushButton()),
+    under(new QLabel()),
+    cleared(false),
     number(0),
     x_pos(0),
-    y_pos(0),
-    cleared(false),
-    button(new QPushButton()),
-    under(new QLabel())
+    y_pos(0)
 {
     button->setStyleSheet("height: 50px; width: 50px; font-size: 50px;");
     under->setText(QString::number(getNumber()));
@@ -20,6 +20,7 @@ Cell::Cell() :
     under->setStyleSheet( styleSheet().append(QString("border: 1px solid gray;")));
 
     QObject::connect(button, &QPushButton::clicked, this, &Cell::clear); //connecting signals and slots
+    QObject::connect(button, &QPushButton::clicked, this, &Cell::win_emitter); //connecting signals and slots
 
     addWidget(button);
     addWidget(under);
@@ -67,6 +68,11 @@ void Cell::mousePressEvent(QMouseEvent *e)
 {
     if(e->button()==Qt::RightButton)
         emit rightClicked(getX(), getY());
+}
+
+void Cell::win_emitter()
+{
+    emit check_win();
 }
 
 void Cell::update_label(bool cheat)

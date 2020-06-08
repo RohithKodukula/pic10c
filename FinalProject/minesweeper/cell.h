@@ -27,6 +27,7 @@ public:
     void setCoords(int x, int y);
 
     void update_label(bool cheat = false); //update from initialization values (all zeroes)
+    void win_emitter();
 
     QPushButton* button;
     QLabel* under;
@@ -39,6 +40,7 @@ public slots:
 signals:
     void clear_this(int x, int y); //signal emitted from clear to pass on coordinates
     void rightClicked(int x, int y); //signal emitted from clear to pass on coordinates
+    void check_win();
 
 private:
     int number;

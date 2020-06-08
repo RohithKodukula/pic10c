@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <QGridLayout>
+#include <QVBoxLayout>
 
 #include "cell.h"
 
@@ -32,6 +33,8 @@ public:
 
     void placeMine(int x, int y); //places bomb and updates neighbors
     void clear_neighbors(int x, int y); //clear neighbors too if they have 0 neighbors
+
+    void check_game();
 
 private slots:
     void flag(int x, int y);

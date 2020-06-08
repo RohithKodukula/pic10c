@@ -10,6 +10,3 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 }
-
-//zoeb's random comment to test git stuff
-//test
