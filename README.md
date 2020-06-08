@@ -36,7 +36,7 @@ It's starting to look a little bit like minesweeper! Added colors to the numbers
 
 6/5/2020 Tried to add fonts to emulate classic minesweeper but failed because I couldn't figure out how to navigate QFontDatabase commands.
 
-6/7/2020 Added right-click event for flagging and also proper neighbor cell clearing. Also made sure that bombs didn't spawn within the user's first click. There is therfore a slight delay after the first click while bombs are spawned but nothing much can be done about that. Added the winning condition and made a screen for displaying whether the player wins or loses.
+6/7/2020 Added right-click event for flagging and also proper neighbor cell clearing. Also made sure that bombs didn't spawn within the user's first click. There is therfore a slight delay after the first click while bombs are spawned but nothing much can be done about that. Added the win condition, putting in a window for winning or losing. Added credits too. Should be just about done.
 
 ### Zoeb's Section
 * 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4

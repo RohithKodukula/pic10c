@@ -342,8 +342,31 @@ void MainWindow::check_game()
     }
     if(win || lose)
     {
-        QWidget *wdg = new QWidget;
+        QWidget *wdg = new QWidget();
+        QVBoxLayout* vertical_lay = new QVBoxLayout();
+        QLabel* win_lose = new QLabel();
+        QFont font = win_lose->font();
+        if(win)
+        {
+            win_lose->setText("You Win!!!");
+            font.setPointSize(30);
+        }
+        if(lose)
+        {
+             win_lose->setText("You Lose, better luck next time. ");
+             font.setPointSize(22);
+        }
+        win_lose->setFont(font);
+        win_lose->setAlignment(Qt::AlignCenter);
+        vertical_lay->addWidget(win_lose);
 
+        QLabel* credits = new QLabel();
+        credits->setText("Thanks for playing.\
+Made by Zoeb J. and Rohith K for PIC10C Class.");
+        credits->setAlignment(Qt::AlignCenter);
+        vertical_lay->addWidget(credits);
+
+        wdg->setLayout(vertical_lay);
         wdg->show();
     }
 }
