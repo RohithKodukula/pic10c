@@ -39,7 +39,7 @@ It's starting to look a little bit like minesweeper! Added colors to the numbers
 6/7/2020 Added right-click event for flagging and also proper neighbor cell clearing. Also made sure that bombs didn't spawn within the user's first click. There is therfore a slight delay after the first click while bombs are spawned but nothing much can be done about that. Added the win condition, putting in a window for winning or losing. Added credits too. Should be just about done.
 
 ### Zoeb's Section
-* 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4
+* 06/03/2020 learning how to play minesweeper - [used this video!](https://www.youtube.com/watch?v=7B85WbEiYf4)
 * 06/04/2020 created new branch off master (experimental-zoeb) - working on how to design the ui. Current possible ideas include using key sequence edit widget to take input (U for uncover, F for flag) also use stack widget container to display the resulting change (if U is pressed, display either bomb or number, if F is pressed, display flagged graphic)
   * currently, I am working on how to get all of these widgets connected, I need to make another MainWindow constructor for widgets. This turned out to be harder than expected so I am going to create a new branch off of master and work on game functionality. Initially I used a vector of vectors like Rohith had done in the QT project, but after browsing stack exchange, I realized a 2D array may work better as it is more intuitive
 * 06/04/2020 created new branch off master (experimental_game_funtionality-zoeb) - going to try and add some more game functionality, like what happens if you press a bomb
