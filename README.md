@@ -50,7 +50,7 @@ It's starting to look a little bit like minesweeper! Added colors to the numbers
   I don't think I'll work on the project anymore tonight as it is rather late but I will incorporate this when I work on the goals for tomorow.
  * 06/06/2020 **Success at last! :+1:** I finally fixed my testing ground program to generate the board along with the incremented neighbor cells. After finishing this I was able to move on the next issue, which was figuring out how to uncover the other cells with a 0 int value that are next to the first cell clicked. It took me a while to do this, first I made clearCell functions but they didn't work. I will try something else in a bit.
  * 06/06/2020 Progress update - **Success again! :grin:** I wrote a recursive algorithm to remove the other 0 valued cells that are covered. (pasted below). **_Note:_** **We will have to do a little changing to adapt this to the QT code but it shoudn't be too difficult** In this code, the x and y parameters represent the coordinates of the cell the user clicks and the * means the cell is covered and an int value of 0 means there are no adjacent cells with an int value other than 0. Also, the value 10 stands for a bomb. I know that this code wouldn't work on its own because  the cell can't be * and 0, but this is just an outline of an algorithm. 
- ```
+```
 void minesweeper::reveal(int x, int y) {
     if (board [x][y] == '*' && board [x][y] != 10 && x >= 0 && x < 10 && y >= 0 && y < 10) {
         if (board [x][y] == 0) {
@@ -63,6 +63,6 @@ void minesweeper::reveal(int x, int y) {
             reveal(x - 1, y);
             reveal(x + 1, y);
         }
-    }
+    } 
 }
 ```
