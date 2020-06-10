@@ -42,7 +42,7 @@ It's starting to look a little bit like minesweeper! Added colors to the numbers
 6/7/2020 Added right-click event for flagging and also proper neighbor cell clearing. Also made sure that bombs didn't spawn within the user's first click. There is therfore a slight delay after the first click while bombs are spawned but nothing much can be done about that. Added the win condition, putting in a window for winning or losing. Added credits too. Should be just about done.
 
 ### Zoeb's Section
-* 06/03/2020 learning how to play minesweeper - used this video! https://www.youtube.com/watch?v=7B85WbEiYf4
+* 06/03/2020 learning how to play minesweeper - [used this video!](https://www.youtube.com/watch?v=7B85WbEiYf4)
 * 06/04/2020 created new branch off master (experimental-zoeb) - working on how to design the ui. Current possible ideas include using key sequence edit widget to take input (U for uncover, F for flag) also use stack widget container to display the resulting change (if U is pressed, display either bomb or number, if F is pressed, display flagged graphic)
   * currently, I am working on how to get all of these widgets connected, I need to make another MainWindow constructor for widgets. This turned out to be harder than expected so I am going to create a new branch off of master and work on game functionality. Initially I used a vector of vectors like Rohith had done in the QT project, but after browsing stack exchange, I realized a 2D array may work better as it is more intuitive
 * 06/04/2020 created new branch off master (experimental_game_funtionality-zoeb) - going to try and add some more game functionality, like what happens if you press a bomb
@@ -51,3 +51,21 @@ It's starting to look a little bit like minesweeper! Added colors to the numbers
  * 06/05/2020 (night) - I ran into several not so cute problems (pun intended). It was pretty hard to try and intuitively figure out how exactly to generate the board. I first tried by using the mainwindow.ui form and dragging and dropping widgets but this proved to be more difficult that expected. I rewatched some of the TA's recorded discussion sessions (specifically day 13 - adding widgets without using the ui form) but I still did not get a concrete grasp on how to scale this up to a 10x10 grid. Rohith has made more progress in this department so hopefully he can show me how. For now I guess I'll stick to trying to figure out a method of generating the board in a concise and clean manner. I also ran into some issues with git on my local machine - it was still showing branches that had been deleted on github. I don't want to create any big issues so I will store back up copies of all my code just in case. I'll also do a bit more research into git and hopefully try to get the errors resolved since committing directly from my machine is so much easier than manually uploading files. The goal for tomorrow is to figure out the git issues (I believe it has something to do with the build files not being added to git), understand more about integrating widgets in QT, and hopefully finish the code to initialize the minesweeper board fully. 
    * my current method to get the adjacent cells to display the correct value is to check if each cell has an adjacent cell that is a bomb (int value 10) and then add 1 to the cell. I think I may be running into issues because currently the first time the loop runs it tries to access an out of scope value (if the 2d array starts at [0][0] my loop starts looking for a bomb at [0 - 1][0 - 1]) **_note:_** **I just realized that I may be having issues because I have been thinking about the array as a grid with "y" values increasing upwards rather than downwards - A quick peek at https://www.tutorialspoint.com/cplusplus/cpp_multi_dimensional_arrays.htm confirmed this hypothesis.**
   I don't think I'll work on the project anymore tonight as it is rather late but I will incorporate this when I work on the goals for tomorow.
+ * 06/06/2020 **Success at last! :+1:** I finally fixed my testing ground program to generate the board along with the incremented neighbor cells. After finishing this I was able to move on the next issue, which was figuring out how to uncover the other cells with a 0 int value that are next to the first cell clicked. It took me a while to do this, first I made clearCell functions but they didn't work. I will try something else in a bit.
+ * 06/06/2020 Progress update - **Success again! :smile:** I wrote a recursive algorithm to remove the other 0 valued cells that are covered. (pasted below). **_Note:_** **We will have to do a little changing to adapt this to the QT code but it shoudn't be too difficult** In this code, the x and y parameters represent the coordinates of the cell the user clicks and the * means the cell is covered and an int value of 0 means there are no adjacent cells with an int value other than 0. Also, the value 10 stands for a bomb. I know that this code wouldn't work on its own because  the cell can't be * and 0, but this is just an outline of an algorithm. 
+```
+void minesweeper::reveal(int x, int y) {
+    if (board [x][y] == '*' && board [x][y] != 10 && x >= 0 && x < 10 && y >= 0 && y < 10) {
+        if (board [x][y] == 0) {
+            reveal(x, y - 1);
+            reveal(x, y + 1);
+            reveal(x - 1, y - 1);
+            reveal(x + 1, y - 1);
+            reveal(x + 1, y + 1);
+            reveal(x - 1, y + 1);
+            reveal(x - 1, y);
+            reveal(x + 1, y);
+        }
+    } 
+}
+```
