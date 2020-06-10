@@ -24,6 +24,9 @@ The layout I had implemented worked just fine. I connected all the signals from 
 I ran into a problem where the radio buttons didn't properly update the grade on press. Quickly resolved using the `clicked()` signal.
 
 ## Final Project: Minesweeper
+### Ideation
+From the very mention of a final project Zoeb and I were thinking about what to make of it. I had been playing a lot of minesweeper to pass the time during spring break and I thought it had a relatively simple base of rules to implement. Turns out the process helped extraordinarily with my understanding of Qt with QGridLayouts, QStackedWidgets, and various properties of other Qt Creator phenamena.
+
 ### Rohith's Section
 5/15/2020 The main hinderance in starting the final project was my inability to compile in my Qt environment. Emailing back and forth with the TA I had to install Qt several times from scratch. This process is detailed above in the "Installation Problems" section.
 
